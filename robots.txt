@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jafaga.github.io/sitemap.xml
