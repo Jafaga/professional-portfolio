@@ -11,10 +11,11 @@ This site is deliberately built with plain HTML, CSS, and JavaScript so it stays
 | Skills and their descriptions | `index.html` | `data-skill=` |
 | Education, work, and volunteer history | `index.html` | `data-timeline` |
 | Project cards and case studies | `index.html` | `project-grid` and `project-dialog` |
+| GitHub account used by the live repository list | `app.js` | `githubUsername` |
 | Project and essay images | `assets/images/` | Replace a file or update its `src` path |
 | Portfolio assistant answers | `app.js` | `assistantResponses` |
 | Colors, type, spacing, and animation | `styles.css` | The variables under `:root` |
-| Résumé content | `resume.html` | Edit the visible résumé sections |
+| Résumé PDF | `assets/resume/Justine-Afaga-Resume.pdf` | Replace this file and keep the same filename |
 | Long-form source notes | `content/` | Markdown files grouped by project and essay |
 
 ## Adding a project
@@ -25,6 +26,17 @@ This site is deliberately built with plain HTML, CSS, and JavaScript so it stays
 4. Add a matching repository-list item if you want it shown in the left panel.
 5. Copy a project `<dialog>` at the bottom of `index.html` if you want a case-study window. The card button's `data-dialog` must match the dialog's `id`.
 6. Increase the project count displayed in the repository and project headers.
+
+## GitHub repository list
+
+The left repository panel automatically loads up to 12 recently updated public repositories from the `Jafaga` GitHub account. Each row opens the real repository in a new tab. It uses GitHub's public API without a token and keeps a 15-minute browser-session cache. If GitHub cannot be reached, the two saved portfolio repository links remain available.
+
+## Replacing the résumé PDF
+
+1. Rename your finished résumé file to `Justine-Afaga-Resume.pdf`.
+2. Open `assets`, then `resume`.
+3. Replace the existing PDF with your new file.
+4. Do not change the filename. The header, About card, and portfolio assistant all point to this one file.
 
 ## Updating the assistant
 

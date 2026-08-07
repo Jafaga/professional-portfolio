@@ -10,8 +10,9 @@ A polished, responsive, terminal-inspired portfolio designed for GitHub Pages. I
 - About/profile console with animated counters
 - Draggable and keyboard-accessible skill constellation
 - Git-style experience and education timeline
-- Searchable repository list, project filters, and case-study dialogs
+- Live, searchable `@Jafaga` GitHub repository list, project filters, and case-study dialogs
 - Technical writing cards linked to the preserved Markdown source files
+- Résumé buttons that open a real PDF instead of a separate HTML page
 - Contact form that prepares an email without storing visitor data
 - Offline, private portfolio assistant with project, skills, experience, résumé, and contact answers
 - Reduced-motion support, keyboard navigation, semantic landmarks, and responsive layouts
@@ -27,6 +28,8 @@ Open `index.html`, or run `python3 -m http.server 8000` in this directory and vi
 ## Customize
 
 See [`CUSTOMIZE.md`](CUSTOMIZE.md) for a direct editing map and project-adding checklist.
+
+To use a newer résumé, replace `assets/resume/Justine-Afaga-Resume.pdf` with your updated PDF and keep the same filename. Every résumé button will update automatically.
 
 ## Deploy
 

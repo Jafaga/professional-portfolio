@@ -241,16 +241,108 @@
     if (projectCount) projectCount.textContent = visibleCount;
   }));
 
+  /* Public GitHub repositories. No token is used or exposed. */
+  const githubUsername = 'Jafaga';
+  const githubRepoList = document.querySelector('[data-repo-list]');
+  const githubRepoCount = document.querySelector('[data-github-count]');
+  const githubStatus = document.querySelector('[data-github-status]');
   const repoSearch = document.querySelector('[data-repo-search]');
-  const repoLinks = [...document.querySelectorAll('[data-repo-name]')];
-  repoSearch?.addEventListener('input', () => {
-    const query = repoSearch.value.trim().toLowerCase();
-    repoLinks.forEach((link) => {
+  const githubCacheKey = `portfolio-repositories-${githubUsername.toLowerCase()}-v1`;
+  const languageColors = {
+    JavaScript: '#f1e05a', TypeScript: '#3178c6', Python: '#3572a5', Java: '#b07219',
+    HTML: '#e34c26', CSS: '#563d7c', 'C++': '#f34b7d', Shell: '#89e051', Jupyter: '#da5b0b'
+  };
+
+  const filterRepositoryLinks = () => {
+    const query = repoSearch?.value.trim().toLowerCase() || '';
+    const links = [...document.querySelectorAll('[data-repo-name]')];
+    let matches = 0;
+    links.forEach((link) => {
       const match = link.dataset.repoName.toLowerCase().includes(query);
       link.hidden = Boolean(query) && !match;
       link.classList.toggle('is-match', Boolean(query) && match);
+      if (match) matches += 1;
     });
-  });
+    githubRepoList?.querySelector('.repo-empty')?.remove();
+    if (query && matches === 0 && githubRepoList) {
+      const empty = document.createElement('p');
+      empty.className = 'repo-empty';
+      empty.textContent = `No repository matches “${repoSearch.value.trim()}”.`;
+      githubRepoList.append(empty);
+    }
+  };
+  repoSearch?.addEventListener('input', filterRepositoryLinks);
+
+  const relativeUpdate = (isoDate) => {
+    const days = Math.max(0, Math.round((Date.now() - new Date(isoDate).getTime()) / 86400000));
+    if (days === 0) return 'updated today';
+    if (days < 30) return `updated ${days}d ago`;
+    const months = Math.round(days / 30);
+    if (months < 12) return `updated ${months}mo ago`;
+    return `updated ${Math.round(months / 12)}y ago`;
+  };
+
+  const renderGitHubRepositories = (repositories, source = 'live') => {
+    if (!githubRepoList || !Array.isArray(repositories) || repositories.length === 0) return;
+    const visibleRepositories = repositories.filter((repo) => !repo.archived).slice(0, 12);
+    const fragment = document.createDocumentFragment();
+    visibleRepositories.forEach((repo) => {
+      const link = document.createElement('a');
+      link.href = repo.html_url;
+      link.target = '_blank';
+      link.rel = 'noreferrer';
+      link.dataset.repoName = repo.name;
+      link.setAttribute('aria-label', `Open ${repo.name} on GitHub`);
+
+      const title = document.createElement('strong');
+      title.textContent = repo.name;
+      const external = document.createElement('small');
+      external.textContent = '↗';
+      title.append(' ', external);
+
+      const meta = document.createElement('span');
+      const dot = document.createElement('i');
+      dot.className = 'dot';
+      dot.style.setProperty('--repo-color', languageColors[repo.language] || '#8b8b86');
+      const language = repo.language || 'Repository';
+      const stars = repo.stargazers_count ? ` · ★ ${repo.stargazers_count}` : '';
+      meta.append(dot, `${language} · ${relativeUpdate(repo.updated_at)}${stars}`);
+      link.append(title, meta);
+      fragment.append(link);
+    });
+    githubRepoList.replaceChildren(fragment);
+    if (githubRepoCount) githubRepoCount.textContent = String(visibleRepositories.length);
+    if (githubStatus) {
+      githubStatus.className = 'repo-sync is-connected';
+      githubStatus.innerHTML = `<i></i> ${source === 'cache' ? 'Cached from' : 'Live from'} @${githubUsername}`;
+    }
+    filterRepositoryLinks();
+  };
+
+  const loadGitHubRepositories = async () => {
+    try {
+      const cached = JSON.parse(sessionStorage.getItem(githubCacheKey) || 'null');
+      if (cached?.savedAt && Date.now() - cached.savedAt < 900000 && Array.isArray(cached.repositories)) {
+        renderGitHubRepositories(cached.repositories, 'cache');
+        return;
+      }
+    } catch (_) { /* Storage can be unavailable in privacy-focused browsers. */ }
+
+    try {
+      const endpoint = `https://api.github.com/users/${githubUsername}/repos?type=owner&sort=updated&per_page=100`;
+      const response = await fetch(endpoint, { headers: { Accept: 'application/vnd.github+json' } });
+      if (!response.ok) throw new Error(`GitHub responded with ${response.status}`);
+      const repositories = await response.json();
+      renderGitHubRepositories(repositories);
+      try { sessionStorage.setItem(githubCacheKey, JSON.stringify({ savedAt: Date.now(), repositories })); } catch (_) { /* Optional cache. */ }
+    } catch (_) {
+      if (githubStatus) {
+        githubStatus.className = 'repo-sync is-fallback';
+        githubStatus.innerHTML = '<i></i> Saved links · GitHub unavailable';
+      }
+    }
+  };
+  loadGitHubRepositories();
 
   document.querySelectorAll('[data-dialog]').forEach((button) => button.addEventListener('click', () => {
     document.getElementById(button.dataset.dialog)?.showModal?.();
@@ -305,8 +397,8 @@
     },
     resume: {
       label: 'Where is her résumé?',
-      text: 'Her résumé is included as a dedicated, printable page in this portfolio.',
-      action: { label: 'Open résumé →', href: 'resume.html' }
+      text: 'Her résumé is included as a downloadable PDF in this portfolio.',
+      action: { label: 'Open résumé PDF →', href: 'assets/resume/Justine-Afaga-Resume.pdf', newTab: true }
     },
     about: {
       label: 'Tell me about Justine.',
@@ -344,6 +436,10 @@
       const link = document.createElement('a');
       link.href = action.href;
       link.textContent = action.label;
+      if (action.newTab) {
+        link.target = '_blank';
+        link.rel = 'noreferrer';
+      }
       link.addEventListener('click', () => {
         if (action.href.startsWith('#')) closeAssistant();
       });
