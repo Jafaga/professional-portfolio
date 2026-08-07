@@ -1,55 +1,35 @@
 # Justine Afaga — Professional Portfolio
 
-A responsive, accessible portfolio for [jafaga.github.io](https://jafaga.github.io), rebuilt as a dependency-free static site for fast GitHub Pages deployment.
+A polished, responsive, terminal-inspired portfolio designed for GitHub Pages. It is an original implementation shaped by developer-workspace interfaces, with Justine's existing information, projects, writing, and experience preserved.
 
-## Site structure
+## Highlights
 
-- `index.html` — homepage content and section structure
-- `styles.css` — complete design system and responsive styles
-- `app.js` — navigation, scroll reveals, skills, project filtering, dialogs, and email form fallback
-- `resume.html` / `resume.css` — printable résumé; use **Print / Save PDF** to create a PDF
-- `assets/images/` — optimized selection of original portfolio imagery
-- `assets/images/og.png` — custom social sharing preview card
-- `content/projects/` — preserved long-form project source files
-- `content/essays/` — preserved long-form writing source files
-- `.github/workflows/pages.yml` — optional GitHub Pages deployment workflow
+- Short, skippable boot sequence
+- Desktop command rail and mobile navigation dock
+- Animated code-editor hero and section-aware scroll progress
+- About/profile console with animated counters
+- Draggable and keyboard-accessible skill constellation
+- Git-style experience and education timeline
+- Searchable repository list, project filters, and case-study dialogs
+- Technical writing cards linked to the preserved Markdown source files
+- Contact form that prepares an email without storing visitor data
+- Offline, private portfolio assistant with project, skills, experience, résumé, and contact answers
+- Reduced-motion support, keyboard navigation, semantic landmarks, and responsive layouts
 
-## Editing content
+## Technology
 
-Open `index.html` in any editor. Each major part is a labeled `<section>`: About, Skills, Experience, Projects, Writing, and Contact. Project case-study dialogs are at the bottom of the same file. Personal links and contact details are plain text, so there is no hidden configuration.
+This project uses semantic HTML, modern CSS, and dependency-free JavaScript. There is no framework, package manager, build step, analytics service, database, or chatbot API.
 
-The long-form Markdown source from the original portfolio remains under `content/`. It is included for reference and future migration to a blog or content system.
+## Run locally
 
-## Local preview
+Open `index.html`, or run `python3 -m http.server 8000` in this directory and visit `http://localhost:8000`.
 
-The site has no build step. You can open `index.html` directly, or serve the folder locally:
+## Customize
 
-```sh
-python3 -m http.server 8000
-```
+See [`CUSTOMIZE.md`](CUSTOMIZE.md) for a direct editing map and project-adding checklist.
 
-Then visit `http://localhost:8000`.
+## Deploy
 
-## Deploying to GitHub Pages
+Push the folder contents to the `main` branch of `Jafaga/professional-portfolio`. In the repository's **Settings → Pages**, set the source to **Deploy from a branch**, then select `main` and `/(root)`.
 
-1. Unzip this project.
-2. Copy its contents to the root of the `jafaga.github.io` repository.
-3. Commit and push to the `main` branch.
-4. In GitHub, open **Settings → Pages**.
-5. Under **Build and deployment**, select **GitHub Actions**. The included workflow will publish the site.
-
-Because this is the special `jafaga.github.io` repository, the public URL will be `https://jafaga.github.io/`.
-
-## Contact form behavior
-
-The contact form does not send data to a third party. It validates the fields and opens the visitor’s default email app with a prepared message to `afagajus@hawaii.edu`. The visible email link remains available if no mail app is configured.
-
-## Accessibility and performance
-
-- Semantic landmarks and heading order
-- Keyboard-visible focus styles and skip navigation
-- Accessible project dialogs and status updates
-- Reduced-motion support
-- Responsive layouts for phones, tablets, and desktops
-- Lazy-loaded project and essay imagery
-- No runtime dependencies or tracking scripts
+Live URL after GitHub finishes deploying: `https://jafaga.github.io/professional-portfolio/`

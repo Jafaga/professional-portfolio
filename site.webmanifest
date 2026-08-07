@@ -1,0 +1,9 @@
+{
+  "name": "Justine Afaga — Portfolio",
+  "short_name": "Justine.dev",
+  "description": "The professional portfolio of Justine Afaga.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#10100f",
+  "theme_color": "#10100f"
+}
