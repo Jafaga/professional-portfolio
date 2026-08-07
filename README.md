@@ -2,8 +2,6 @@
 
 A polished, responsive, terminal-inspired portfolio designed for GitHub Pages. It is an original implementation shaped by developer-workspace interfaces, with Justine's existing information, projects, writing, and experience preserved.
 
-The interface uses a deep forest background with emerald, mint, lime, and teal accents inspired by Justine's favorite color.
-
 ## Highlights
 
 - Short, skippable boot sequence
@@ -12,7 +10,7 @@ The interface uses a deep forest background with emerald, mint, lime, and teal a
 - About/profile console with animated counters
 - Draggable and keyboard-accessible skill constellation
 - Git-style experience and education timeline
-- Live, searchable `@Jafaga` GitHub repository list, project filters, and case-study dialogs
+- Searchable repository list, project filters, and case-study dialogs
 - Technical writing cards linked to the preserved Markdown source files
 - Contact form that prepares an email without storing visitor data
 - Offline, private portfolio assistant with project, skills, experience, résumé, and contact answers
