@@ -4,6 +4,7 @@
   "description": "The professional portfolio of Justine Afaga.",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#10100f",
-  "theme_color": "#10100f"
+  "icons": [{"src":"favicon-green.png","sizes":"64x64","type":"image/png"}],
+  "background_color": "#07110b",
+  "theme_color": "#07110b"
 }
