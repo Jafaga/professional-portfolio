@@ -226,3 +226,13 @@ button { color: inherit; }
   .site-header, .command-rail, .mobile-dock, .assistant-launcher, .assistant-panel, .boot-screen, .page-grid, .cursor-light { display: none !important; }
   body { background: #fff; color: #111; }.section { padding-block: 32px; }.editor-window, .identity-card, .terminal-panel, .commit-card, .project-card { box-shadow: none; break-inside: avoid; }
 }
+
+.avatar-orbit img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  border-radius: 50%;
+  object-fit: cover;
+}
