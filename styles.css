@@ -51,7 +51,7 @@ button { color: inherit; }
 .skills-grid, .constellation-card, .skill-inspector { min-width: 0; }
 .section { position: relative; padding-block: 132px; }
 
-/* Boot screen */
+/* Boot screen (extra) */
 .boot-screen { position: fixed; inset: 0; z-index: 1500; display: grid; place-items: center; padding: 24px; background: #0b0b0a; transition: opacity .55s ease, visibility .55s ease; }
 .boot-screen::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,112,67,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,112,67,.05) 1px, transparent 1px); background-size: 40px 40px; }
 .boot-screen.is-done { opacity: 0; visibility: hidden; }
