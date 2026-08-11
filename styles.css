@@ -240,3 +240,26 @@ button { color: inherit; }
   object-position: center;
   clip-path: circle(50%);
 }
+
+/* Keep the profile card compact instead of matching the terminal height */
+.about-grid {
+  align-items: start;
+}
+
+.identity-card {
+  align-self: start;
+  min-height: 0;
+  height: auto;
+}
+
+.identity-card dl {
+  margin: 0;
+}
+
+.avatar-orbit {
+  margin: 38px auto 34px;
+}
+
+.identity-links {
+  padding-bottom: 4px;
+}
