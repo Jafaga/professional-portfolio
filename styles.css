@@ -228,11 +228,15 @@ button { color: inherit; }
 }
 
 .avatar-orbit img {
-  position: relative;
+  position: absolute;
+  inset: 8px;
   z-index: 1;
-  width: 100%;
-  height: 100%;
-  padding: 8px;
+
+  width: calc(100% - 16px);
+  height: calc(100% - 16px);
+
   border-radius: 50%;
   object-fit: cover;
+  object-position: center;
+  clip-path: circle(50%);
 }
