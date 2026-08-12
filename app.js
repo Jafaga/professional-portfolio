@@ -56,19 +56,12 @@
   const sections = [...document.querySelectorAll('[data-section]')];
   const sectionLinks = [...document.querySelectorAll('.primary-nav a[href^="#"], [data-rail-link], .mobile-dock a[href^="#"]')];
   const railProgress = document.querySelector('[data-rail-progress]');
-  const timeline = document.querySelector('[data-timeline]');
-  const timelineProgress = document.querySelector('[data-timeline-progress]');
 
   const updateScrollUI = () => {
     const y = window.scrollY;
     const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
     header?.classList.toggle('is-scrolled', y > 24);
     if (railProgress) railProgress.style.height = `${(y / maxScroll) * 100}%`;
-    if (timeline && timelineProgress) {
-      const rect = timeline.getBoundingClientRect();
-      const traveled = window.innerHeight * 0.55 - rect.top;
-      timelineProgress.style.height = `${clamp(traveled / rect.height, 0, 1) * 100}%`;
-    }
   };
   window.addEventListener('scroll', updateScrollUI, { passive: true });
   updateScrollUI();
@@ -166,6 +159,8 @@
   const skillTitle = document.querySelector('[data-skill-title]');
   const skillCopy = document.querySelector('[data-skill-copy]');
   const skillIcon = document.querySelector('[data-skill-icon]');
+  const inspectorLogo = document.querySelector('[data-inspector-logo]');
+  const inspectorFallback = document.querySelector('[data-inspector-fallback]');
   const skillIndex = document.querySelector('[data-skill-index]');
   let mapX = 0;
   let mapY = 0;
@@ -202,12 +197,33 @@
     renderMap();
   });
 
+  document.querySelectorAll('[data-logo-image]').forEach((image) => {
+    const showFallback = () => image.closest('.skill-logo')?.classList.add('has-missing-logo');
+    const showImage = () => image.closest('.skill-logo')?.classList.remove('has-missing-logo');
+    image.addEventListener('error', showFallback);
+    image.addEventListener('load', showImage);
+    if (image.complete) {
+      if (image.naturalWidth > 0) showImage();
+      else showFallback();
+    }
+  });
+
+  const setInspectorLogo = (source, fallback, label) => {
+    if (!inspectorLogo || !inspectorFallback || !skillIcon) return;
+    skillIcon.classList.remove('has-missing-logo');
+    inspectorFallback.textContent = fallback;
+    inspectorLogo.alt = `${label} logo`;
+    inspectorLogo.src = source;
+  };
+  inspectorLogo?.addEventListener('error', () => skillIcon?.classList.add('has-missing-logo'));
+  inspectorLogo?.addEventListener('load', () => skillIcon?.classList.remove('has-missing-logo'));
+
   skillButtons.forEach((button, index) => button.addEventListener('click', () => {
     skillButtons.forEach((item) => item.classList.remove('is-active'));
     button.classList.add('is-active');
     if (skillTitle) skillTitle.textContent = button.dataset.skill;
     if (skillCopy) skillCopy.textContent = button.dataset.copy;
-    if (skillIcon) skillIcon.textContent = button.querySelector('b')?.textContent || 'JA';
+    setInspectorLogo(button.dataset.logo, button.dataset.fallback || 'JA', button.dataset.skill);
     if (skillIndex) skillIndex.textContent = String(index + 1).padStart(2, '0');
   }));
 
@@ -221,7 +237,43 @@
     skillButtons.forEach((skill) => skill.classList.toggle('is-dimmed', filter !== 'all' && skill.dataset.category !== filter));
   }));
 
-  /* Project filters, repository search, and case-study dialogs. */
+  /* Horizontal experience history. Past sits left; the current entry opens on the right. */
+  const timelineViewport = document.querySelector('[data-timeline-scroll]');
+  const timelineProgress = document.querySelector('[data-timeline-progress]');
+  const timelineStatus = document.querySelector('[data-timeline-status]');
+  const timelineItems = [...document.querySelectorAll('.timeline-item')];
+  const timelineButtons = [...document.querySelectorAll('[data-timeline-direction]')];
+
+  const updateTimeline = () => {
+    if (!timelineViewport) return;
+    const maxScroll = Math.max(1, timelineViewport.scrollWidth - timelineViewport.clientWidth);
+    const ratio = clamp(timelineViewport.scrollLeft / maxScroll, 0, 1);
+    if (timelineProgress) timelineProgress.style.width = `${ratio * 100}%`;
+    const index = Math.round(ratio * Math.max(0, timelineItems.length - 1));
+    const item = timelineItems[index];
+    const date = item?.querySelector('.timeline-date')?.childNodes[0]?.textContent.trim() || 'PRESENT';
+    if (timelineStatus) timelineStatus.textContent = `${item?.matches('[data-current-experience]') ? 'PRESENT' : date} / ${String(index + 1).padStart(2, '0')}`;
+    timelineButtons.forEach((button) => {
+      const direction = Number(button.dataset.timelineDirection);
+      button.disabled = direction < 0 ? ratio <= .01 : ratio >= .99;
+    });
+  };
+
+  const openTimelineAtPresent = () => {
+    if (!timelineViewport) return;
+    timelineViewport.scrollLeft = timelineViewport.scrollWidth;
+    updateTimeline();
+  };
+
+  timelineViewport?.addEventListener('scroll', updateTimeline, { passive: true });
+  timelineButtons.forEach((button) => button.addEventListener('click', () => {
+    const direction = Number(button.dataset.timelineDirection);
+    timelineViewport?.scrollBy({ left: direction * Math.max(320, timelineViewport.clientWidth * .72), behavior: reduceMotion ? 'auto' : 'smooth' });
+  }));
+  window.addEventListener('resize', updateTimeline, { passive: true });
+  requestAnimationFrame(() => requestAnimationFrame(openTimelineAtPresent));
+
+  /* Project filters and repository search. */
   const filterButtons = document.querySelectorAll('[data-filter]');
   const projectCards = document.querySelectorAll('.project-card[data-category]');
   const projectCount = document.querySelector('[data-project-count]');
@@ -344,17 +396,6 @@
   };
   loadGitHubRepositories();
 
-  document.querySelectorAll('[data-dialog]').forEach((button) => button.addEventListener('click', () => {
-    document.getElementById(button.dataset.dialog)?.showModal?.();
-  }));
-  document.querySelectorAll('.project-dialog').forEach((dialog) => {
-    dialog.querySelector('[data-close]')?.addEventListener('click', () => dialog.close());
-    dialog.addEventListener('click', (event) => {
-      const bounds = dialog.getBoundingClientRect();
-      if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
-    });
-  });
-
   /* Contact form: GitHub Pages friendly mail-app fallback. */
   const contactForm = document.querySelector('[data-contact-form]');
   const formStatus = document.querySelector('[data-form-status]');
@@ -380,6 +421,11 @@
       text: 'Justine currently highlights four projects: Jam Sesh-ion!, Password Changer, Kūlia i Ka Nuʻu, and National Cookie Day. They show a mix of software, research, community work, and leadership.',
       action: { label: 'Jump to projects →', href: '#projects' }
     },
+    writing: {
+      label: 'Open Justine’s journal.',
+      text: 'The journal is Justine’s space for personal writing about learning, community, identity, service, curiosity, and life beyond code. Each featured entry opens as a complete reading page.',
+      action: { label: 'Explore the journal →', href: '#writing' }
+    },
     skills: {
       label: 'What are her skills?',
       text: 'Her current toolkit includes Python, Java, C++, JavaScript, HTML/CSS, Git and GitHub, Prisma, Vercel, and macOS/CLI workflows. She is also exploring AI, hardware, and connected software systems.',
@@ -387,7 +433,7 @@
     },
     experience: {
       label: 'Tell me about her experience.',
-      text: 'Justine is completing a B.S. in Computer Science at UH Mānoa. Her experience also includes customer-facing retail work and community service through Tagnawa and the Konawaena Leo Club.',
+      text: 'Justine earned her B.S. in Computer Science at UH Mānoa and is now pursuing an M.S. while serving as a graduate assistant at ITEC. Her experience also includes retail work and community service through Tagnawa and the Konawaena Leo Club.',
       action: { label: 'View the timeline →', href: '#experience' }
     },
     contact: {
@@ -398,11 +444,11 @@
     resume: {
       label: 'Where is her résumé?',
       text: 'Her résumé is included as a downloadable PDF in this portfolio.',
-      action: { label: 'Open résumé PDF →', href: 'assets/resume/Justine-Afaga-Resume.pdf', newTab: true }
+      action: { label: 'Open résumé PDF →', href: 'assets/resume/AfagaJustine_resume_OFFICIAL.pdf', newTab: true }
     },
     about: {
       label: 'Tell me about Justine.',
-      text: 'Justine Afaga is a Computer Science student in Honolulu who cares about practical, people-centered technology. She approaches learning through curiosity, steady iteration, clear communication, and community.',
+      text: 'Justine Afaga is a Computer Science graduate student in Honolulu who cares about practical, people-centered technology. She approaches learning through curiosity, steady iteration, clear communication, and community.',
       action: { label: 'Read her profile →', href: '#about' }
     },
     fallback: {
@@ -472,6 +518,7 @@
   const classifyQuestion = (value) => {
     const question = value.toLowerCase();
     if (/project|work|build|portfolio|jam|password|cookie|kūlia|kulia/.test(question)) return 'projects';
+    if (/writing|journal|blog|essay|thought|reflection|life/.test(question)) return 'writing';
     if (/skill|stack|language|technology|tech|python|java|css|code/.test(question)) return 'skills';
     if (/experience|job|work history|education|school|university|college/.test(question)) return 'experience';
     if (/contact|email|connect|hire|linkedin|github|reach/.test(question)) return 'contact';

@@ -9,13 +9,17 @@ This site is deliberately built with plain HTML, CSS, and JavaScript so it stays
 | Name, headline, introduction, and contact details | `index.html` | `Justine Afaga`, `hero-lede`, and `contact_info.json` |
 | About text and quick statistics | `index.html` | `user_profile.log` and `stats-grid` |
 | Skills and their descriptions | `index.html` | `data-skill=` |
+| Skill logo images | `assets/images/skills/` | See the README inside that folder |
 | Education, work, and volunteer history | `index.html` | `data-timeline` |
-| Project cards and case studies | `index.html` | `project-grid` and `project-dialog` |
+| Project cards | `index.html` | `project-grid` |
+| Full project reports | `projects/` | One HTML page per project |
+| Journal cards | `index.html` | `writing-grid` |
+| Full journal posts | `blog/` | One HTML page per post |
 | GitHub account used by the live repository list | `app.js` | `githubUsername` |
 | Project and essay images | `assets/images/` | Replace a file or update its `src` path |
 | Portfolio assistant answers | `app.js` | `assistantResponses` |
 | Colors, type, spacing, and animation | `styles.css` | The variables under `:root` |
-| Résumé PDF | `assets/resume/Justine-Afaga-Resume.pdf` | Replace this file and keep the same filename |
+| Résumé PDF | `assets/resume/AfagaJustine_resume_OFFICIAL.pdf` | Replace this file and keep the same filename |
 | Long-form source notes | `content/` | Markdown files grouped by project and essay |
 
 ## Adding a project
@@ -23,9 +27,16 @@ This site is deliberately built with plain HTML, CSS, and JavaScript so it stays
 1. Put its image in `assets/images/`.
 2. Copy one `<article class="project-card">` block in `index.html`.
 3. Give it a unique `id`, update the text and image, and set `data-category` to one or more existing filter values.
-4. Add a matching repository-list item if you want it shown in the left panel.
-5. Copy a project `<dialog>` at the bottom of `index.html` if you want a case-study window. The card button's `data-dialog` must match the dialog's `id`.
-6. Increase the project count displayed in the repository and project headers.
+4. Copy one report page in `projects/`, rename it, and edit the report content.
+5. Point the card image, title, and `Open report` link to that page.
+6. Increase the project count displayed in the project header.
+
+## Adding a journal post
+
+1. Copy one HTML page in `blog/` and give the copy a short filename.
+2. Update its title, description, reading metadata, image, and article text.
+3. Copy one `.writing-card` in `index.html` and point both card links to the new page.
+4. Keep the older Markdown notes in `content/essays/` if you want a source archive.
 
 ## GitHub repository list
 
@@ -33,7 +44,7 @@ The left repository panel automatically loads up to 12 recently updated public r
 
 ## Replacing the résumé PDF
 
-1. Rename your finished résumé file to `Justine-Afaga-Resume.pdf`.
+1. Rename your finished résumé file to `AfagaJustine_resume_OFFICIAL.pdf`.
 2. Open `assets`, then `resume`.
 3. Replace the existing PDF with your new file.
 4. Do not change the filename. The header, About card, and portfolio assistant all point to this one file.
