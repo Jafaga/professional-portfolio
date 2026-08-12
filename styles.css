@@ -281,9 +281,9 @@ button { color: inherit; }
 .inspector-icon.has-missing-logo [data-inspector-fallback] { display: grid; place-items: center; width: 100%; height: 100%; }
 
 /* Horizontal experience history */
-.timeline-shell { overflow: hidden; border: 1px solid var(--line); background: rgba(17,17,15,.58); box-shadow: var(--shadow); }
-.timeline-toolbar, .timeline-foot { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 13px 16px; background: var(--panel-2); color: var(--faint); font: 400 9px/1 var(--mono); }
-.timeline-toolbar { border-bottom: 1px solid var(--line-soft); }
+.timeline-shell { position: relative; overflow: visible; border: 0; background: transparent; box-shadow: none; }
+.timeline-toolbar, .timeline-foot { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 0; background: transparent; color: var(--faint); font: 400 9px/1 var(--mono); }
+.timeline-toolbar { margin-bottom: 18px; border: 0; }
 .timeline-toolbar p { display: flex; align-items: center; gap: 9px; width: min(430px,58vw); margin: 0; }
 .timeline-toolbar p i { flex: 1; height: 1px; background: linear-gradient(90deg,var(--line),var(--orange)); }
 .timeline-toolbar p strong { color: var(--orange-2); font-weight: 500; }
@@ -291,9 +291,10 @@ button { color: inherit; }
 .timeline-toolbar button { padding: 7px 10px; border: 1px solid var(--line); background: #181816; color: var(--muted); cursor: pointer; font: inherit; }
 .timeline-toolbar button:hover:not(:disabled), .timeline-toolbar button:focus-visible { border-color: rgba(255,112,67,.5); color: var(--orange-2); }
 .timeline-toolbar button:disabled { opacity: .35; cursor: default; }
-.timeline-viewport { overflow-x: auto; overflow-y: hidden; scrollbar-color: rgba(255,112,67,.55) #171715; scrollbar-width: thin; overscroll-behavior-inline: contain; scroll-snap-type: x mandatory; }
+.timeline-viewport { overflow-x: auto; overflow-y: hidden; border: 0; background: transparent; scrollbar-width: none; overscroll-behavior-inline: contain; scroll-snap-type: x mandatory; }
+.timeline-viewport::-webkit-scrollbar { display: none; }
 .timeline-viewport:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; }
-.timeline { position: relative; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(430px,46vw); gap: 64px; width: max-content; min-width: 100%; padding: 76px clamp(32px,6vw,86px) 62px; }
+.timeline { position: relative; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(430px,46vw); gap: 64px; width: max-content; min-width: 100%; padding: 76px clamp(22px,4.5vw,62px) 44px; }
 .timeline-line { position: absolute; left: 0; right: 0; top: 49px; bottom: auto; width: auto; height: 2px; background: var(--line); }
 .timeline-line i { display: block; width: 0; height: 100%; background: linear-gradient(90deg,var(--blue),var(--orange)); transition: width .1s linear; }
 .timeline-item { position: relative; display: block; scroll-snap-align: center; }
@@ -304,7 +305,7 @@ button { color: inherit; }
 .timeline-date b { margin-left: 7px; color: var(--green); font-weight: 500; }
 .timeline-item.is-current .commit-card { border-color: rgba(255,112,67,.45); box-shadow: 0 16px 60px rgba(255,112,67,.09); }
 .timeline-item.is-current .timeline-node { background: var(--green); box-shadow: 0 0 0 2px #d8d6d0,0 0 18px rgba(69,212,131,.45); }
-.timeline-foot { border-top: 1px solid var(--line-soft); }
+.timeline-foot { margin-top: 18px; border: 0; }
 .timeline-foot strong { color: var(--orange-2); font-weight: 500; }
 
 /* Clickable project reports and personal journal */

@@ -272,6 +272,10 @@
   }));
   window.addEventListener('resize', updateTimeline, { passive: true });
   requestAnimationFrame(() => requestAnimationFrame(openTimelineAtPresent));
+  window.addEventListener('load', () => window.setTimeout(openTimelineAtPresent, 80), { once: true });
+  window.addEventListener('pageshow', (event) => {
+    if (event.persisted) openTimelineAtPresent();
+  });
 
   /* Project filters and repository search. */
   const filterButtons = document.querySelectorAll('[data-filter]');
