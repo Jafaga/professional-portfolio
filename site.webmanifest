@@ -5,5 +5,13 @@
   "start_url": "./",
   "display": "standalone",
   "background_color": "#10100f",
-  "theme_color": "#10100f"
+  "theme_color": "#10100f",
+  "icons": [
+    {
+      "src": "grogu-tab.png?v=4",
+      "sizes": "894x894",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
 }

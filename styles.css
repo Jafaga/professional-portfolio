@@ -17,6 +17,7 @@
   --purple: #c791ff;
   --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, ui-monospace, monospace;
   --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --display: "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
   --header-h: 72px;
   --shell: min(1180px, calc(100vw - 64px));
   --shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
@@ -72,8 +73,8 @@ button { color: inherit; }
 .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--header-h); display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 34px; padding: 0 max(24px, calc((100vw - 1440px)/2)); border-bottom: 1px solid transparent; transition: background .25s, border-color .25s, height .25s; }
 .site-header.is-scrolled { height: 62px; background: rgba(16,16,15,.88); border-color: var(--line-soft); backdrop-filter: blur(18px); }
 .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -.03em; }
-.brand-mark { display: grid; place-items: center; width: 36px; height: 36px; overflow: hidden; border: 1px solid rgba(255,112,67,.5); border-radius: 50%; background: rgba(255,112,67,.08); color: var(--orange); font: 600 12px/1 var(--mono); }
-.brand-mark img { width: 100%; height: 100%; object-fit: cover; object-position: center 34%; }
+.brand-mark { position: relative; flex: 0 0 36px; display: block; width: 36px; height: 36px; overflow: hidden; border: 1px solid rgba(255,112,67,.5); border-radius: 50%; background: rgba(255,112,67,.08); color: var(--orange); font: 600 12px/1 var(--mono); }
+.brand-mark img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: 50% 40%; transform: none; }
 .primary-nav { justify-self: center; display: flex; align-items: center; gap: 6px; }
 .primary-nav a { position: relative; padding: 9px 10px; color: var(--muted); font: 400 12px/1 var(--mono); transition: color .2s, background .2s; }
 .primary-nav a:hover, .primary-nav a.is-active { color: var(--text); background: rgba(255,255,255,.035); }
@@ -100,7 +101,7 @@ button { color: inherit; }
 .system-label { display: inline-flex; align-items: center; gap: 8px; padding: 7px 10px; margin-bottom: 26px; border: 1px solid rgba(255,112,67,.35); background: rgba(255,112,67,.045); color: var(--orange-2); font: 500 10px/1 var(--mono); letter-spacing: .06em; }
 .system-label i { width: 7px; height: 7px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 12px var(--orange); animation: statusPulse 2s infinite; }.system-label span { color: var(--faint); }
 .hero-kicker { margin: 0 0 10px; color: var(--muted); font: 400 clamp(15px,1.5vw,19px)/1.5 var(--mono); }.hero-kicker span { color: var(--orange); }
-.hero h1 { margin: 0; font-size: clamp(58px,7.3vw,104px); line-height: .92; letter-spacing: -.075em; }
+.hero h1 { margin: 0; padding-bottom: .08em; white-space: nowrap; font-family: var(--display); font-size: clamp(50px,5.2vw,78px); font-weight: 800; line-height: 1; letter-spacing: -.065em; }
 .hero h1 span { display: inline-block; background: linear-gradient(105deg, var(--orange) 0%, #e6a2a7 43%, var(--blue) 95%); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .hero-lede { max-width: 630px; margin: 28px 0 0; color: #c0bdb5; font-size: clamp(16px,1.65vw,20px); line-height: 1.65; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
@@ -181,7 +182,7 @@ button { color: inherit; }
 @media (max-width: 1180px) {
   :root { --shell: min(1040px,calc(100vw - 56px)); }
   .command-rail { right: 10px; }
-  .hero { gap: 38px; }.hero h1 { font-size: clamp(54px,7.4vw,84px); }
+  .hero { gap: 38px; }.hero h1 { font-size: clamp(50px,6.2vw,74px); }
   .primary-nav a { padding-inline: 7px; }
   .skills-grid { grid-template-columns: 1fr 300px; }
 }
