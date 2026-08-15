@@ -12,7 +12,7 @@ This site is deliberately built with plain HTML, CSS, and JavaScript so it stays
 | Skill logo images | `assets/images/skills/` | See the README inside that folder |
 | Education, work, and volunteer history | `index.html` | `data-timeline` |
 | Project cards | `index.html` | `project-grid` |
-| Full project reports | `projects/` | One HTML page per project |
+| Full project case studies | `projects/` | One HTML page per project |
 | Journal cards | `index.html` | `writing-grid` |
 | Full journal posts | `blog/` | One HTML page per post |
 | GitHub account used by the live repository list | `app.js` | `githubUsername` |
@@ -27,8 +27,8 @@ This site is deliberately built with plain HTML, CSS, and JavaScript so it stays
 1. Put its image in `assets/images/`.
 2. Copy one `<article class="project-card">` block in `index.html`.
 3. Give it a unique `id`, update the text and image, and set `data-category` to one or more existing filter values.
-4. Copy one report page in `projects/`, rename it, and edit the report content.
-5. Point the card image, title, and `Open report` link to that page.
+4. Copy one case-study page in `projects/`, rename it, and update its overview, facts, problem, response, contribution, process, and outcome blocks.
+5. Point the card image, title, and `View case study` link to that page.
 6. Increase the project count displayed in the project header.
 
 ## Adding a journal post

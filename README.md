@@ -10,7 +10,7 @@ A polished, responsive, terminal-inspired portfolio designed for GitHub Pages. I
 - About/profile console with animated counters
 - Draggable and keyboard-accessible skill constellation with replaceable circular logo images
 - Horizontal Git-style experience timeline that opens at the current role and scrolls back through earlier experience
-- Live, searchable `@Jafaga` GitHub repository list, project filters, and dedicated project report pages
+- Live, searchable `@Jafaga` GitHub repository list, project filters, and dedicated professional case-study pages
 - Personal journal cards with complete standalone blog-post pages
 - Résumé buttons that open a real PDF instead of a separate HTML page
 - Contact form that prepares an email without storing visitor data
