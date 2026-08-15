@@ -34,9 +34,11 @@ This site is deliberately built with plain HTML, CSS, and JavaScript so it stays
 ## Adding a journal post
 
 1. Copy one HTML page in `blog/` and give the copy a short filename.
-2. Update its title, description, reading metadata, image, and article text.
-3. Copy one `.writing-card` in `index.html` and point both card links to the new page.
-4. Keep the older Markdown notes in `content/essays/` if you want a source archive.
+2. Update its title, description, author line, reading metadata, featured image, and article text.
+3. Keep the reusable reading blocks that fit the post: `.post-promise` for the reader benefit, `.post-practice` for a checklist, `.inline-cta` for related work, and `.post-ending` for a closing question or action.
+4. Copy one `.writing-card` in `index.html` and point both card links to the new page.
+5. Update the previous/next links at the bottom of the surrounding journal pages.
+6. Keep the older Markdown notes in `content/essays/` if you want a source archive.
 
 ## GitHub repository list
 
