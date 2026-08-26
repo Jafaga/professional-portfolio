@@ -437,7 +437,7 @@
     },
     experience: {
       label: 'Tell me about her experience.',
-      text: 'Justine earned her B.S. in Computer Science at UH Mānoa and is now pursuing an M.S. while serving as a graduate assistant at ITEC. Her experience also includes retail work and community service through Tagnawa and the Konawaena Leo Club.',
+      text: 'Justine is an M.S. Computer Science candidate, expected to graduate in Spring 2028, and a current Learning Design and Technology graduate assistant with ITEC. Her experience also spans department web design, student ambassadorship, Timpuyog leadership, the TIDES program, retail, hospitality, and community-focused student work.',
       action: { label: 'View the timeline →', href: '#experience' }
     },
     contact: {
