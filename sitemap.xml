@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://jafaga.github.io/professional-portfolio/</loc></url>
+  <url><loc>https://jafaga.github.io/professional-portfolio/projects/expense-tracker.html</loc></url>
+  <url><loc>https://jafaga.github.io/professional-portfolio/projects/kanto-pokedex.html</loc></url>
+  <url><loc>https://jafaga.github.io/professional-portfolio/projects/python-pacman.html</loc></url>
+  <url><loc>https://jafaga.github.io/professional-portfolio/projects/outer-rim-run.html</loc></url>
+  <url><loc>https://jafaga.github.io/professional-portfolio/projects/learn-ilokano.html</loc></url>
   <url><loc>https://jafaga.github.io/professional-portfolio/projects/jam-sesh-ion.html</loc></url>
   <url><loc>https://jafaga.github.io/professional-portfolio/projects/password-changer.html</loc></url>
   <url><loc>https://jafaga.github.io/professional-portfolio/projects/kulia-i-ka-nuu.html</loc></url>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Expense Tracker data flow</title><desc id="desc">Form input is validated, saved in SQLite, summarized, and rendered in the desktop interface.</desc>
+  <rect width="1280" height="720" fill="#0e141d"/><path d="M0 120H1280M0 240H1280M0 360H1280M0 480H1280M0 600H1280M160 0V720M320 0V720M480 0V720M640 0V720M800 0V720M960 0V720M1120 0V720" stroke="#1a2837"/>
+  <text x="72" y="86" fill="#69dbb4" font-family="monospace" font-size="18">expense_tracker.py / data path</text>
+  <g font-family="Arial,sans-serif"><g fill="#172231" stroke="#2b5272" stroke-width="2"><rect x="72" y="248" width="240" height="190" rx="18"/><rect x="368" y="248" width="240" height="190" rx="18"/><rect x="664" y="248" width="240" height="190" rx="18"/><rect x="960" y="248" width="240" height="190" rx="18"/></g>
+  <g fill="#f4f7fb" font-size="23" font-weight="700"><text x="106" y="302">01 · Capture</text><text x="402" y="302">02 · Validate</text><text x="698" y="302">03 · Persist</text><text x="994" y="302">04 · Review</text></g>
+  <g fill="#9fb0c3" font-size="16"><text x="106" y="344">Date, description,</text><text x="106" y="370">category, and amount</text><text x="402" y="344">Decimal currency and</text><text x="402" y="370">ISO date checks</text><text x="698" y="344">SQLite stores values</text><text x="698" y="370">locally as integer cents</text><text x="994" y="344">Totals, filters, and</text><text x="994" y="370">the transaction table</text></g>
+  <g fill="#69dbb4" font-family="monospace" font-size="13"><text x="106" y="410">Tkinter form</text><text x="402" y="410">parse + normalize</text><text x="698" y="410">expenses.db</text><text x="994" y="410">refresh()</text></g></g>
+  <g stroke="#ff8a5b" stroke-width="4" fill="none"><path d="M320 344H355"/><path d="M616 344H651"/><path d="M912 344H947"/></g><g fill="#ff8a5b"><path d="m355 344-12-8v16z"/><path d="m651 344-12-8v16z"/><path d="m947 344-12-8v16z"/></g>
+  <text x="72" y="610" fill="#74869a" font-family="monospace" font-size="16">local-first · no account · no cloud upload · repeatable unit tests</text>
+</svg>

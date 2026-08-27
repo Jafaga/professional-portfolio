@@ -422,7 +422,7 @@
   const assistantResponses = {
     projects: {
       label: 'Show me Justine’s projects.',
-      text: 'Justine currently highlights four projects: Jam Sesh-ion!, Password Changer, Kūlia i Ka Nuʻu, and National Cookie Day. They show a mix of software, research, community work, and leadership.',
+      text: 'Justine currently highlights nine projects. Her newest builds include a Python Expense Tracker, an interactive Kanto Pokédex, Python Pac-Man, Outer Rim Run, and Learn Ilokano, alongside earlier software, research, community, and leadership work.',
       action: { label: 'Jump to projects →', href: '#projects' }
     },
     writing: {
@@ -521,7 +521,7 @@
 
   const classifyQuestion = (value) => {
     const question = value.toLowerCase();
-    if (/project|work|build|portfolio|jam|password|cookie|kūlia|kulia/.test(question)) return 'projects';
+    if (/project|work|build|portfolio|jam|password|cookie|kūlia|kulia|expense|pok[eé]dex|pokemon|pac.?man|outer rim|ilokano|game/.test(question)) return 'projects';
     if (/writing|journal|blog|essay|thought|reflection|life/.test(question)) return 'writing';
     if (/skill|stack|language|technology|tech|python|java|css|code/.test(question)) return 'skills';
     if (/experience|job|work history|education|school|university|college/.test(question)) return 'experience';

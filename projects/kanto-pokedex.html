@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Kanto Pokédex case study by Justine Afaga: a React and TypeScript field guide to the original 151 Pokémon.">
+  <meta name="theme-color" content="#10100f"><title>Kanto Pokédex — Justine Afaga</title>
+  <link rel="icon" type="image/png" href="../grogu-tab.png?v=4"><link rel="stylesheet" href="../styles.css?v=3.4"><link rel="stylesheet" href="../detail.css?v=1.3">
+</head>
+<body class="detail-page project-page">
+  <div class="page-grid" aria-hidden="true"></div>
+  <header class="detail-header"><a class="brand" href="../index.html#home" aria-label="Justine Afaga, home"><span class="brand-mark" aria-hidden="true"><img src="../assets/images/me/justineafaga3.jpg" alt=""></span><span>jafaga<span class="accent">.dev</span></span></a><nav aria-label="Portfolio"><a href="../index.html#projects">projects/</a><a href="../index.html#writing">journal/</a><a href="../index.html#contact">contact.exe</a></nav><a class="detail-back" href="../index.html#projects">← All projects</a></header>
+  <main class="detail-main">
+    <section class="project-overview" aria-labelledby="project-title">
+      <div class="project-overview-copy">
+        <p class="project-label"><span>PROJECT 06</span> INTERACTIVE FIELD GUIDE <i class="project-status">LIVE</i></p>
+        <h1 id="project-title" class="detail-title">Kanto Pokédex</h1>
+        <p class="detail-deck">A searchable field guide to the original 151 Pokémon, built to feel like a research archive instead of a basic list of API results.</p>
+        <ul class="detail-tags"><li>React 19</li><li>TypeScript</li><li>Vite</li><li>PokéAPI</li><li>Responsive UI</li></ul>
+        <div class="project-actions"><a class="project-button is-primary" href="https://pokemon-pokedex-sigma-six.vercel.app" target="_blank" rel="noreferrer">Open live app ↗</a><a class="project-button" href="https://github.com/Jafaga/pokemon-pokedex" target="_blank" rel="noreferrer">View source ↗</a></div>
+      </div>
+      <figure class="project-cover"><img src="../assets/images/project-pokemon-cover.png" alt="Kanto Pokédex project cover with a technical Poké Ball diagram"><figcaption><span>GENERATION I</span> 001—151</figcaption></figure>
+    </section>
+    <ul class="project-specs" aria-label="Project facts">
+      <li><span>ROLE</span><strong>Individual developer</strong><small>Research, UI, implementation</small></li>
+      <li><span>DATE</span><strong>August 20, 2026</strong><small>Initial release</small></li>
+      <li><span>DATA</span><strong>PokéAPI</strong><small>Two resources per entry</small></li>
+      <li><span>DEPLOYMENT</span><strong>Vercel + OpenAI Sites</strong><small>Two static build targets</small></li>
+    </ul>
+
+    <section class="project-section" aria-labelledby="pokedex-overview">
+      <header class="project-section-head"><span>01 / OVERVIEW</span><h2 id="pokedex-overview">All 151, but still easy to explore</h2><p>I wanted one place where I could browse the full Kanto roster, search quickly, and still slow down to read the details of one Pokémon. The biggest design problem was fitting both the index and the specimen file on the same screen without making either side feel crowded.</p></header>
+      <div class="project-summary-grid"><article class="project-summary-card"><span>DISCOVER</span><h3>Browse without waiting</h3><p>A local roster shows all 151 entries immediately, with search by name or number and quick type filters.</p></article><article class="project-summary-card"><span>INSPECT</span><h3>Bring the details together</h3><p>The selected file combines artwork, descriptions, abilities, measurements, habitat, stats, and cry playback.</p></article><article class="project-summary-card"><span>USE ANYWHERE</span><h3>Make the archive responsive</h3><p>The three-column desktop layout rearranges for tablets and phones while keeping every core action available.</p></article></div>
+    </section>
+
+    <section class="project-section" aria-labelledby="pokedex-interface">
+      <header class="project-section-head"><span>02 / INTERFACE</span><h2 id="pokedex-interface">A research-lab visual system</h2><p>The cream paper texture, red measurement marks, serif headings, and compact metadata helped the app feel connected to a field guide. The interface is still modern underneath, with keyboard navigation and reduced-motion support.</p></header>
+      <div class="project-gallery"><figure class="project-figure is-wide"><img src="../assets/images/project-pokemon-ui.jpg" alt="Kanto Pokédex desktop interface with index cards and Pikachu specimen details"><figcaption><span>SCREEN 01</span><strong>Index and specimen file</strong><p>Search, filters, roster cards, and the selected entry stay visible together on desktop.</p></figcaption></figure><figure class="project-figure is-wide"><img src="../assets/images/project-pokemon-data-flow.svg" alt="Diagram showing how local roster data and two PokéAPI endpoints create the specimen file"><figcaption><span>DIAGRAM 01</span><strong>Local-first list, live details</strong><p>The index appears immediately while deeper details load only for the selected entry.</p></figcaption></figure></div>
+    </section>
+
+    <section class="project-section" aria-labelledby="pokedex-build">
+      <header class="project-section-head"><span>03 / BUILD</span><h2 id="pokedex-build">Two API requests become one clear entry</h2></header>
+      <div class="project-work-grid"><article class="project-work-card"><span>DATA</span><h3>Fetch in parallel</h3><p>The Pokémon endpoint provides stats, types, abilities, measurements, sprites, artwork, and cries. The species endpoint adds habitat, growth rate, capture rate, and game descriptions.</p></article><article class="project-work-card"><span>INTERACTION</span><h3>Search, filter, and move quickly</h3><p>Visitors can search by name or number, filter by type, select an entry, and use the left or right arrow keys to move through the index.</p></article><article class="project-work-card"><span>RESILIENCE</span><h3>Keep errors understandable</h3><p>The local index remains usable when a detail request fails, and the specimen panel gives the visitor a retry path.</p></article><article class="project-work-card"><span>DEPLOYMENT</span><h3>Share one interface across two builds</h3><p>The repository has a vinext build for OpenAI Sites and a Vite build for Vercel, both using the same page and stylesheet.</p></article></div>
+    </section>
+
+    <section class="project-section" aria-labelledby="pokedex-review">
+      <header class="project-section-head"><span>04 / REVIEW</span><h2 id="pokedex-review">What this project helped me practice</h2></header>
+      <div class="project-work-grid"><article class="project-work-card"><span>LEARNING</span><h3>Data needs a point of view</h3><p>Getting information from an API was only the first step. The harder and more interesting work was deciding what belonged together and how a visitor should move through it.</p></article><article class="project-work-card"><span>NEXT STEP</span><h3>Make comparison more useful</h3><ul><li>Add saved favorites</li><li>Compare two stat profiles side by side</li><li>Cache recent entries for offline review</li><li>Expand accessibility testing with real devices</li></ul></article></div>
+      <div class="project-note"><span>DATA &amp; ART CREDIT</span><p>Structured data, sprites, artwork, and cries come from PokéAPI and the PokéAPI sprite repository. Pokémon names and characters belong to Nintendo, Game Freak, and The Pokémon Company. This is an unofficial, non-commercial fan project.</p><a href="https://pokeapi.co/docs/v2" target="_blank" rel="noreferrer">PokéAPI documentation ↗</a></div>
+    </section>
+
+    <nav class="detail-pager" aria-label="Project case studies"><a href="expense-tracker.html"><span>← PREVIOUS PROJECT</span><strong>Expense Tracker</strong></a><a href="python-pacman.html"><span>NEXT PROJECT →</span><strong>Python Pac-Man</strong></a></nav>
+  </main>
+  <footer class="detail-footer"><span>© 2026 Justine Afaga · Honolulu, Hawaiʻi</span><a href="../index.html#projects">Return to selected work ↑</a></footer>
+</body></html>

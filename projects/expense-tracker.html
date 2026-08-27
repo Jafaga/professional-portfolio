@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Expense Tracker case study by Justine Afaga: a local-first Python, Tkinter, and SQLite desktop application.">
+  <meta name="theme-color" content="#10100f"><title>Expense Tracker — Justine Afaga</title>
+  <link rel="icon" type="image/png" href="../grogu-tab.png?v=4"><link rel="stylesheet" href="../styles.css?v=3.4"><link rel="stylesheet" href="../detail.css?v=1.3">
+</head>
+<body class="detail-page project-page">
+  <div class="page-grid" aria-hidden="true"></div>
+  <header class="detail-header"><a class="brand" href="../index.html#home" aria-label="Justine Afaga, home"><span class="brand-mark" aria-hidden="true"><img src="../assets/images/me/justineafaga3.jpg" alt=""></span><span>jafaga<span class="accent">.dev</span></span></a><nav aria-label="Portfolio"><a href="../index.html#projects">projects/</a><a href="../index.html#writing">journal/</a><a href="../index.html#contact">contact.exe</a></nav><a class="detail-back" href="../index.html#projects">← All projects</a></header>
+  <main class="detail-main">
+    <section class="project-overview" aria-labelledby="project-title">
+      <div class="project-overview-copy">
+        <p class="project-label"><span>PROJECT 05</span> DESKTOP APPLICATION <i class="project-status">COMPLETE</i></p>
+        <h1 id="project-title" class="detail-title">Expense Tracker</h1>
+        <p class="detail-deck">A small desktop app for recording daily spending and seeing where the money goes, without creating an account or sending personal data to a server.</p>
+        <ul class="detail-tags"><li>Python</li><li>Tkinter</li><li>SQLite</li><li>unittest</li><li>GitHub Actions</li></ul>
+        <div class="project-actions"><a class="project-button is-primary" href="https://github.com/Jafaga/expense-tracker" target="_blank" rel="noreferrer">View source on GitHub ↗</a><a class="project-button" href="../index.html#projects">Browse all projects</a></div>
+      </div>
+      <figure class="project-cover"><img src="../assets/images/project-expense-ui.svg" alt="Expense Tracker dashboard with a data-entry form, totals, category summary, and transaction table"><figcaption><span>LOCAL-FIRST</span> Desktop UI + persistent storage</figcaption></figure>
+    </section>
+    <ul class="project-specs" aria-label="Project facts">
+      <li><span>ROLE</span><strong>Individual developer</strong><small>Design, data, tests</small></li>
+      <li><span>DATE</span><strong>August 21, 2026</strong><small>Repository history</small></li>
+      <li><span>PLATFORM</span><strong>Desktop</strong><small>macOS, Windows, Linux</small></li>
+      <li><span>DATA</span><strong>Local SQLite</strong><small>No cloud account required</small></li>
+    </ul>
+
+    <section class="project-section" aria-labelledby="expense-overview">
+      <header class="project-section-head"><span>01 / OVERVIEW</span><h2 id="expense-overview">A practical reason to connect interface and data</h2><p>I wanted this project to solve a normal problem instead of only showing a programming concept. Tracking an expense gave me a clear path from a form, through validation, into a database, and back into a useful summary.</p></header>
+      <div class="project-summary-grid">
+        <article class="project-summary-card"><span>THE NEED</span><h3>Keep daily spending understandable</h3><p>The app records a date, description, category, and amount, then makes those entries easy to review later.</p></article>
+        <article class="project-summary-card"><span>THE CHOICE</span><h3>Private by default</h3><p>SQLite stores everything on the user’s own computer. There is no account, server, or upload step.</p></article>
+        <article class="project-summary-card"><span>THE RESULT</span><h3>One focused desktop workflow</h3><p>People can add, filter, total, and delete expenses from one screen without learning a complex finance tool.</p></article>
+      </div>
+    </section>
+
+    <section class="project-section" aria-labelledby="expense-interface">
+      <header class="project-section-head"><span>02 / INTERFACE</span><h2 id="expense-interface">The information stays visible</h2><p>The interface gives the form, total, category breakdown, and transaction table their own visual level. I kept the color system simple so the numbers stay more important than decoration.</p></header>
+      <div class="project-gallery">
+        <figure class="project-figure is-wide"><img src="../assets/images/project-expense-ui.svg" alt="Full Expense Tracker interface"><figcaption><span>SCREEN 01</span><strong>Entry and review dashboard</strong><p>A single window keeps the most common actions close together.</p></figcaption></figure>
+        <figure class="project-figure is-wide"><img src="../assets/images/project-expense-flow.svg" alt="Diagram of the Expense Tracker data flow"><figcaption><span>DIAGRAM 01</span><strong>From form input to SQLite</strong><p>Validation happens before the record is saved and the summaries are refreshed.</p></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="project-section" aria-labelledby="expense-build">
+      <header class="project-section-head"><span>03 / BUILD</span><h2 id="expense-build">Small engineering choices that protect the data</h2></header>
+      <div class="project-work-grid">
+        <article class="project-work-card"><span>CURRENCY</span><h3>Store money as integer cents</h3><p>I used <code>Decimal</code> for input and saved integer cents so values do not pick up floating-point rounding errors.</p></article>
+        <article class="project-work-card"><span>VALIDATION</span><h3>Stop bad records early</h3><p>Dates must use the ISO format, descriptions cannot be empty, and amounts must be valid and greater than zero.</p></article>
+        <article class="project-work-card"><span>STORAGE</span><h3>Keep the database outside the repository</h3><p>The app creates <code>~/.expense_tracker/expenses.db</code>, separating private user data from project source.</p></article>
+        <article class="project-work-card"><span>QUALITY</span><h3>Test the logic separately</h3><p>Unit tests cover parsing, validation, storage, totals, filtering, and deletion. GitHub Actions runs them again on every push.</p></article>
+      </div>
+    </section>
+
+    <section class="project-section" aria-labelledby="expense-review">
+      <header class="project-section-head"><span>04 / REVIEW</span><h2 id="expense-review">What I learned from building it</h2></header>
+      <div class="project-work-grid"><article class="project-work-card"><span>LEARNING</span><h3>The UI is only one part of the product</h3><p>This project helped me see how much work happens after someone clicks a button: validation, persistence, calculations, error handling, and refreshing the view all have to agree.</p></article><article class="project-work-card"><span>NEXT STEP</span><h3>Make trends easier to notice</h3><ul><li>Add monthly charts and budget targets</li><li>Support CSV export and backup</li><li>Add edit-in-place for existing records</li><li>Improve automated interface testing</li></ul></article></div>
+      <div class="project-note"><span>PRIVACY</span><p>The sample values in the visual are fictional. The application keeps real financial entries on the local device and does not transmit them.</p><a href="https://github.com/Jafaga/expense-tracker" target="_blank" rel="noreferrer">Open repository ↗</a></div>
+    </section>
+
+    <nav class="detail-pager" aria-label="Project case studies"><a href="national-cookie-day.html"><span>← PREVIOUS PROJECT</span><strong>National Cookie Day</strong></a><a href="kanto-pokedex.html"><span>NEXT PROJECT →</span><strong>Kanto Pokédex</strong></a></nav>
+  </main>
+  <footer class="detail-footer"><span>© 2026 Justine Afaga · Honolulu, Hawaiʻi</span><a href="../index.html#projects">Return to selected work ↑</a></footer>
+</body></html>

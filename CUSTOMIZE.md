@@ -17,6 +17,7 @@ This site is deliberately built with plain HTML, CSS, and JavaScript so it stays
 | Full journal posts | `blog/` | One HTML page per post |
 | GitHub account used by the live repository list | `app.js` | `githubUsername` |
 | Project and essay images | `assets/images/` | Replace a file or update its `src` path |
+| Header profile photo | `assets/images/me/justineafaga3.jpg` | Used by the circular `brand-mark` in every page header |
 | Portfolio assistant answers | `app.js` | `assistantResponses` |
 | Colors, type, spacing, and animation | `styles.css` | The variables under `:root` |
 | Résumé PDF | `assets/resume/AfagaJustine_resume_OFFICIAL.pdf` | Replace this file and keep the same filename |
@@ -26,10 +27,13 @@ This site is deliberately built with plain HTML, CSS, and JavaScript so it stays
 
 1. Put its image in `assets/images/`.
 2. Copy one `<article class="project-card">` block in `index.html`.
-3. Give it a unique `id`, update the text and image, and set `data-category` to one or more existing filter values.
+3. Give it a unique `id`, update the text and image, and set `data-category` to one or more existing filter values: `software`, `game`, `community`, or `leadership`.
 4. Copy one case-study page in `projects/`, rename it, and update its overview, facts, problem, response, contribution, process, and outcome blocks.
 5. Point the card image, title, and `View case study` link to that page.
 6. Increase the project count displayed in the project header.
+7. Add the new page URL to `sitemap.xml` and update the previous/next project links.
+
+Project visuals can be real screenshots, project-owned illustrations, or openly licensed images. Keep the source or license note on the case-study page when the visual comes from a third party. The new project pages use real interface captures plus original diagrams stored in `assets/images/`.
 
 ## Adding a journal post
 
