@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- Search, social-sharing, favicon, and browser metadata. -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Justine Afaga is a computer science student and software developer in Honolulu, Hawaiʻi, building thoughtful, people-centered technology.">
@@ -30,6 +31,7 @@
   <div class="page-grid" aria-hidden="true"></div>
   <div class="cursor-light" data-cursor-light aria-hidden="true"></div>
 
+  <!-- One-time loading animation; app.js hides this after the first session view. -->
   <div class="boot-screen" data-boot-screen aria-label="Portfolio loading">
     <div class="boot-terminal">
       <div class="boot-mark">JA<span>://</span></div>
@@ -43,6 +45,7 @@
     </div>
   </div>
 
+  <!-- Fixed desktop header and primary navigation. -->
   <header class="site-header" data-header>
     <a class="brand" href="#home" aria-label="Justine Afaga, home">
       <span class="brand-mark" aria-hidden="true"><img src="assets/images/me/justineafaga-header.png" alt=""></span>
@@ -62,6 +65,7 @@
     <a class="header-resume" href="assets/resume/AfagaJustine_resume_OFFICIAL.pdf" target="_blank" rel="noreferrer">Résumé PDF <span aria-hidden="true">↗</span></a>
   </header>
 
+  <!-- Desktop shortcut rail; app.js updates its active section and progress line. -->
   <nav class="command-rail" aria-label="Section shortcuts" data-command-rail>
     <span class="rail-track" aria-hidden="true"><i data-rail-progress></i></span>
     <a href="#home" data-rail-link><b>⌂</b><span>Home</span></a>
@@ -74,6 +78,7 @@
   </nav>
 
   <main id="main">
+    <!-- HERO: introduction, primary calls to action, and code-style profile card. -->
     <section id="home" class="hero section-shell" aria-labelledby="hero-title" data-section>
       <div class="hero-ambient" aria-hidden="true"><span>const curiosity = true;</span><span>while (learning) { build(); }</span></div>
       <div class="hero-copy">
@@ -111,7 +116,7 @@
       <a class="scroll-cue" href="#about" aria-label="Continue to about"><span>SCROLL TO EXPLORE</span><i></i></a>
     </section>
 
-<!-- ABOUT ME SECTION -->
+    <!-- ABOUT: profile, biography, links, and portfolio statistics. -->
     <section id="about" class="section section-shell" aria-labelledby="about-title" data-section>
       <header class="section-heading reveal">
         <p>01 / ABOUT ME</p>
@@ -157,7 +162,7 @@
       </div>
     </section>
 
-<!-- SKILL TREE -->
+    <!-- SKILLS: interactive, filterable constellation and its detail inspector. -->
     <section id="skills" class="section section-shell" aria-labelledby="skills-title" data-section>
       <header class="section-heading reveal">
         <p>02 / TOOLKIT</p>
@@ -205,7 +210,7 @@
     </section>
 
 
-<!-- MY STORY, MY TIMELINE (EXPERIENCES) -->
+    <!-- EXPERIENCE: horizontally scrollable education and work timeline. -->
     <section id="experience" class="section section-shell" aria-labelledby="experience-title" data-section>
       <header class="section-heading reveal">
         <p>03 / JOURNEY</p>
@@ -259,7 +264,7 @@
       </div>
     </section>
 
-<!-- PROJECTS SECTION -->
+    <!-- PROJECTS: filter controls, featured cards, and GitHub repository feed. -->
     <section id="projects" class="section section-shell" aria-labelledby="projects-title" data-section>
       <header class="section-heading reveal">
         <p>04 / SELECTED WORK</p>
@@ -326,6 +331,7 @@
       <p class="edit-note reveal"><span>EDIT_HINT</span> Project source notes live in <code>/content/projects</code>. See <a href="CUSTOMIZE.md">CUSTOMIZE.md</a> for a quick editing map.</p>
     </section>
 
+    <!-- WRITING: journal introduction and links to long-form posts. -->
     <section id="writing" class="section section-shell" aria-labelledby="writing-title" data-section>
       <header class="section-heading reveal"><p>05 / LIFE &amp; FIELD NOTES</p><h2 id="writing-title"><span>▤</span> open <span class="accent">~/journal</span></h2><i aria-hidden="true"></i></header>
       <div class="journal-intro reveal"><p><span>PERSONAL_LOG</span> A place for the person behind the code.</p><p>Notes about learning, community, identity, service, curiosity, and the life I’m building beyond a computer screen.</p><ul><li>LEARNING</li><li>COMMUNITY</li><li>REFLECTION</li><li>LIFE OUTSIDE CODE</li></ul></div>
@@ -337,6 +343,7 @@
       <p class="edit-note blog-edit-note reveal"><span>WRITE_NEXT</span> Add future personal posts in <code>/blog</code>, then duplicate a card above to publish it here.</p>
     </section>
 
+    <!-- CONTACT: public contact details and a mailto-based message form. -->
     <section id="contact" class="section section-shell contact-section" aria-labelledby="contact-title" data-section>
       <header class="section-heading reveal"><p>06 / CONNECTION</p><h2 id="contact-title"><span>@</span> ./contact<span class="accent">.exe</span></h2><i aria-hidden="true"></i></header>
       <div class="contact-grid">
@@ -365,8 +372,10 @@
     </section>
   </main>
 
+  <!-- Shared site footer. The year is filled automatically by app.js. -->
   <footer class="site-footer section-shell"><a class="brand" href="#home" aria-label="Justine Afaga, home"><span class="brand-mark" aria-hidden="true"><img src="assets/images/me/justineafaga-header.png" alt=""></span><span>jafaga<span class="accent">.dev</span></span></a><p>Designed and built with curiosity in Honolulu.<br><span>© <span data-year></span> Justine Afaga</span></p><a href="#home">Back to top ↑</a></footer>
 
+  <!-- Local keyword assistant; responses are defined in app.js and no data is sent. -->
   <button class="assistant-launcher" type="button" aria-label="Open Justine's portfolio assistant" aria-expanded="false" aria-controls="portfolio-assistant" data-assistant-launcher>
     <span class="assistant-rings" aria-hidden="true"></span><b>JA</b><i></i><span class="assistant-label"><strong>&gt; Ask the portfolio</strong><small>local guide · no data sent</small></span>
   </button>
@@ -380,8 +389,10 @@
     <footer>/* keyword guide · offline · private */</footer>
   </section>
 
+  <!-- Compact navigation shown on smaller screens. -->
   <nav class="mobile-dock" aria-label="Mobile section navigation"><a href="#home">⌂<span>Home</span></a><a href="#about">&gt;_<span>About</span></a><a href="#skills">#<span>Skills</span></a><a href="#projects">□<span>Work</span></a><a href="#contact">@<span>Contact</span></a></nav>
 
+  <!-- Main interactions: navigation, motion, filters, timeline, forms, and assistant. -->
   <script src="app.js?v=3.2" defer></script>
 </body>
 </html>

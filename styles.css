@@ -1,3 +1,9 @@
+/*
+ * Main portfolio styles
+ * Sections follow the order of index.html; responsive overrides live near the end.
+ */
+
+/* Design tokens shared by every page and component. */
 :root {
   color-scheme: dark;
   --bg: #10100f;

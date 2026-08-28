@@ -1,3 +1,4 @@
+/* Shared layout for journal posts and project case-study pages. */
 .detail-page { min-height: 100vh; }
 .detail-header { position: sticky; top: 0; z-index: 20; min-height: 68px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 22px; padding: 0 max(24px,calc((100vw - 1180px)/2)); border-bottom: 1px solid var(--line); background: rgba(16,16,15,.93); backdrop-filter: blur(18px); }
 .detail-header .brand { justify-self: start; }
@@ -43,6 +44,7 @@
 .detail-pager strong { color: var(--text); font-size: 16px; }
 .detail-footer { width: min(1040px,calc(100vw - 40px)); display: flex; justify-content: space-between; gap: 20px; margin: 0 auto; padding: 30px 0 60px; border-top: 1px solid var(--line); color: var(--faint); font: 400 9px/1.6 var(--mono); }
 .detail-footer a { color: var(--orange-2); }
+/* Journal-specific typography, bylines, callouts, and reading helpers. */
 .journal-page .detail-title { max-width: 960px; font-family: var(--sans); letter-spacing: -.055em; }
 .journal-page .detail-copy > p:first-of-type::first-letter { float: left; margin: 6px 9px 0 0; color: var(--orange); font: 750 60px/.72 var(--mono); }
 .reading-meta { display: flex; flex-wrap: wrap; gap: 12px; margin: 0 0 34px; color: var(--faint); font: 400 9px/1 var(--mono); }
@@ -138,6 +140,7 @@
 .project-note a { white-space: nowrap; color: var(--orange-2); font: 600 9px/1 var(--mono); }
 .project-page .detail-pager { margin-top: 78px; }
 .project-page .detail-footer { width: min(1180px,calc(100vw - 48px)); }
+/* Small-screen layout shared by journal posts and project case studies. */
 @media (max-width: 760px) {
   .detail-header { grid-template-columns: auto auto; justify-content: space-between; padding-inline: 14px; }
   .detail-header nav { display: none; }

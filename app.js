@@ -1,3 +1,8 @@
+/*
+ * Portfolio interactions
+ * Features are organized in the same top-to-bottom order as index.html.
+ * Each block queries data-* hooks so visual CSS classes can change independently.
+ */
 (() => {
   'use strict';
 
