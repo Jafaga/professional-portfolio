@@ -427,7 +427,7 @@
   const assistantResponses = {
     projects: {
       label: 'Show me Justine’s projects.',
-      text: 'Justine currently highlights nine projects. Her newest builds include a Python Expense Tracker, an interactive Kanto Pokédex, Python Pac-Man, Outer Rim Run, and Learn Ilokano, alongside earlier software, research, community, and leadership work.',
+      text: 'Justine currently highlights eleven projects. Her newest builds include a Python-powered Calculator and Adobo on Island Time, an interactive cooking journal, alongside an Expense Tracker, Kanto Pokédex, Python Pac-Man, Outer Rim Run, Learn Ilokano, and earlier community and leadership work.',
       action: { label: 'Jump to projects →', href: '#projects' }
     },
     writing: {

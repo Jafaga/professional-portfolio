@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://jafaga.github.io/professional-portfolio/</loc></url>
+  <url><loc>https://jafaga.github.io/professional-portfolio/projects/calculator.html</loc></url>
+  <url><loc>https://jafaga.github.io/professional-portfolio/projects/adobo-on-island-time.html</loc></url>
   <url><loc>https://jafaga.github.io/professional-portfolio/projects/expense-tracker.html</loc></url>
   <url><loc>https://jafaga.github.io/professional-portfolio/projects/kanto-pokedex.html</loc></url>
   <url><loc>https://jafaga.github.io/professional-portfolio/projects/python-pacman.html</loc></url>

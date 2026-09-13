@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Adobo on Island Time case study by Justine Afaga: an interactive React and TypeScript cooking journal rooted in Filipino and Hawaiʻi identity.">
+  <meta name="theme-color" content="#10100f"><title>Adobo on Island Time — Justine Afaga</title>
+  <link rel="icon" type="image/png" href="../grogu-tab.png?v=4"><link rel="stylesheet" href="../styles.css?v=3.5"><link rel="stylesheet" href="../detail.css?v=1.3">
+</head>
+<body class="detail-page project-page">
+  <div class="page-grid" aria-hidden="true"></div>
+  <header class="detail-header"><a class="brand" href="../index.html#home" aria-label="Justine Afaga, home"><span class="brand-mark" aria-hidden="true"><img src="../assets/images/me/justineafaga-header.png" alt=""></span><span>jafaga<span class="accent">.dev</span></span></a><nav aria-label="Portfolio"><a href="../index.html#projects">projects/</a><a href="../index.html#writing">journal/</a><a href="../index.html#contact">contact.exe</a></nav><a class="detail-back" href="../index.html#projects">← All projects</a></header>
+  <main class="detail-main">
+    <section class="project-overview" aria-labelledby="project-title">
+      <div class="project-overview-copy">
+        <p class="project-label"><span>PROJECT 10</span> INTERACTIVE COOKING JOURNAL <i class="project-status">LIVE</i></p>
+        <h1 id="project-title" class="detail-title">Adobo on Island Time</h1>
+        <p class="detail-deck">A personal recipe experience that brings together two things I love: making chicken adobo and building with code.</p>
+        <ul class="detail-tags"><li>React 19</li><li>TypeScript</li><li>Vinext</li><li>Tailwind CSS</li><li>Web Animations API</li></ul>
+        <div class="project-actions"><a class="project-button is-primary" href="https://adobo-on-island-time.vercel.app" target="_blank" rel="noreferrer">Open live journal ↗</a><a class="project-button" href="https://github.com/Jafaga/adobo-on-island-time" target="_blank" rel="noreferrer">View source ↗</a></div>
+      </div>
+      <figure class="project-cover"><img src="../assets/images/project-adobo-cover.jpg" alt="Justine Afaga's finished chicken adobo served in a bowl"><figcaption><span>MY RECIPE</span> Filipino roots · Hawaiʻi raised</figcaption></figure>
+    </section>
+    <ul class="project-specs" aria-label="Project facts">
+      <li><span>ROLE</span><strong>Creator and developer</strong><small>Story, recipe, UI, implementation</small></li>
+      <li><span>DATE</span><strong>September 5–8, 2026</strong><small>Repository history</small></li>
+      <li><span>FORMAT</span><strong>Interactive journal</strong><small>Six cooking moments</small></li>
+      <li><span>DEPLOYMENT</span><strong>Vercel</strong><small>Static React application</small></li>
+    </ul>
+
+    <section class="project-section" aria-labelledby="adobo-overview">
+      <header class="project-section-head"><span>01 / OVERVIEW</span><h2 id="adobo-overview">A project I made for myself</h2><p>This did not begin as an assignment or a deadline. I wanted to document the way I make chicken adobo and turn a familiar family recipe into something people could explore at their own pace. It became a chance to connect my Filipino-American identity, life in Hawaiʻi, and interest in thoughtful interface design.</p></header>
+      <div class="project-summary-grid"><article class="project-summary-card"><span>STORY</span><h3>Keep the personal details</h3><p>Each step includes the small comments and habits that make the recipe feel like mine instead of a generic set of instructions.</p></article><article class="project-summary-card"><span>GUIDANCE</span><h3>Make every step usable</h3><p>Directions, ingredients, cooking cues, timing, and safety notes appear together when a timeline moment is opened.</p></article><article class="project-summary-card"><span>EXPERIENCE</span><h3>Let the reader explore</h3><p>The animated timeline tracks progress and gives each cooking stage its own visual moment on desktop, tablet, and mobile.</p></article></div>
+    </section>
+
+    <section class="project-section" aria-labelledby="adobo-interface">
+      <header class="project-section-head"><span>02 / INTERFACE</span><h2 id="adobo-interface">A cooking journal instead of a recipe card</h2><p>The visual direction is softer and more personal than my usual developer-terminal work. Warm cream, muted greens, serif type, food photography, and slow motion give the story room to breathe.</p></header>
+      <div class="project-gallery"><figure class="project-figure is-wide"><img src="../assets/images/project-adobo-ui.png" alt="Adobo on Island Time opening screen with the words Let's make adobo"><figcaption><span>SCREEN 01</span><strong>Opening invitation</strong><p>The landing view introduces the journal before the reader enters the cooking timeline.</p></figcaption></figure><figure class="project-figure is-wide"><img src="../assets/images/project-adobo-cover.jpg" alt="Finished chicken adobo from Justine's recipe"><figcaption><span>PHOTO 01</span><strong>The finished batch</strong><p>This is my actual chicken adobo and the final image in the experience.</p></figcaption></figure></div>
+    </section>
+
+    <section class="project-section" aria-labelledby="adobo-build">
+      <header class="project-section-head"><span>03 / ENGINEERING</span><h2 id="adobo-build">Content, media, and movement stay separate</h2></header>
+      <div class="project-work-grid"><article class="project-work-card"><span>CONTENT MODEL</span><h3>Six structured recipe moments</h3><p>Each step stores its title, timing, instructions, ingredients, visual cue, personal note, and optional safety source in one typed data model.</p></article><article class="project-work-card"><span>INTERACTION</span><h3>Progress with context</h3><p>Previous and next controls, completion tracking, expanded step views, and focus restoration help visitors move through the recipe without getting lost.</p></article><article class="project-work-card"><span>MOTION</span><h3>Animation with an off switch</h3><p>The Web Animations API creates the timeline transitions while reduced-motion support keeps the experience comfortable and accessible.</p></article><article class="project-work-card"><span>QUALITY</span><h3>Test the pieces that can drift</h3><p>Automated checks cover recipe consistency, media references, photo attribution, and the geometry used by the timeline zoom.</p></article></div>
+    </section>
+
+    <section class="project-section" aria-labelledby="adobo-review">
+      <header class="project-section-head"><span>04 / REFLECTION</span><h2 id="adobo-review">What I learned from mixing code and culture</h2></header>
+      <div class="project-work-grid"><article class="project-work-card"><span>LEARNING</span><h3>Personal projects can show a different kind of technical work</h3><p>This project reminded me that software does not have to feel separate from culture or everyday life. The technical choices mattered, but they mattered because they helped me tell a story that is personal to me.</p></article><article class="project-work-card"><span>NEXT STEP</span><h3>Let the journal keep growing</h3><ul><li>Add more family recipes and memories</li><li>Include a compact printable recipe view</li><li>Continue improving mobile motion and touch behavior</li><li>Document more of my own cooking photography</li></ul></article></div>
+      <div class="project-note"><span>PHOTO &amp; SAFETY NOTES</span><p>The finished-dish photograph is my own. The project keeps photo credits in the repository and links its food-safety guidance to USDA resources.</p><a href="https://github.com/Jafaga/adobo-on-island-time/blob/main/PHOTO_CREDITS.md" target="_blank" rel="noreferrer">Read photo credits ↗</a></div>
+    </section>
+
+    <nav class="detail-pager" aria-label="Project case studies"><a href="calculator.html"><span>← PREVIOUS PROJECT</span><strong>Calculator</strong></a><a href="expense-tracker.html"><span>NEXT PROJECT →</span><strong>Expense Tracker</strong></a></nav>
+  </main>
+  <footer class="detail-footer"><span>© 2026 Justine Afaga · Honolulu, Hawaiʻi</span><a href="../index.html#projects">Return to selected work ↑</a></footer>
+</body></html>

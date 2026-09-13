@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Calculator case study by Justine Afaga: a Python and Flask web calculator with safe decimal arithmetic and accessible keyboard controls.">
+  <meta name="theme-color" content="#10100f"><title>Calculator — Justine Afaga</title>
+  <link rel="icon" type="image/png" href="../grogu-tab.png?v=4"><link rel="stylesheet" href="../styles.css?v=3.5"><link rel="stylesheet" href="../detail.css?v=1.3">
+</head>
+<body class="detail-page project-page">
+  <div class="page-grid" aria-hidden="true"></div>
+  <header class="detail-header"><a class="brand" href="../index.html#home" aria-label="Justine Afaga, home"><span class="brand-mark" aria-hidden="true"><img src="../assets/images/me/justineafaga-header.png" alt=""></span><span>jafaga<span class="accent">.dev</span></span></a><nav aria-label="Portfolio"><a href="../index.html#projects">projects/</a><a href="../index.html#writing">journal/</a><a href="../index.html#contact">contact.exe</a></nav><a class="detail-back" href="../index.html#projects">← All projects</a></header>
+  <main class="detail-main">
+    <section class="project-overview" aria-labelledby="project-title">
+      <div class="project-overview-copy">
+        <p class="project-label"><span>PROJECT 11</span> PYTHON WEB APPLICATION <i class="project-status">LIVE</i></p>
+        <h1 id="project-title" class="detail-title">Calculator</h1>
+        <p class="detail-deck">A focused calculator that combines a tactile, responsive interface with a Python engine designed to evaluate everyday arithmetic safely and clearly.</p>
+        <ul class="detail-tags"><li>Python 3.12</li><li>Flask</li><li>JavaScript</li><li>Decimal</li><li>Vercel</li></ul>
+        <div class="project-actions"><a class="project-button is-primary" href="https://calculator-puce-nine-17.vercel.app" target="_blank" rel="noreferrer">Open live app ↗</a><a class="project-button" href="https://github.com/Jafaga/calculator" target="_blank" rel="noreferrer">View source ↗</a></div>
+      </div>
+      <figure class="project-cover"><img src="../assets/images/project-calculator-ui.png" alt="Calculator interface with a raised keypad, dark display, and light, dark, and system theme controls"><figcaption><span>PYTHON POWERED</span> Responsive web interface</figcaption></figure>
+    </section>
+    <ul class="project-specs" aria-label="Project facts">
+      <li><span>ROLE</span><strong>Individual developer</strong><small>UI, API, math engine, tests</small></li>
+      <li><span>DATE</span><strong>September 9, 2026</strong><small>Initial public release</small></li>
+      <li><span>PLATFORM</span><strong>Responsive web</strong><small>Mouse, touch, and keyboard</small></li>
+      <li><span>DEPLOYMENT</span><strong>Vercel</strong><small>Flask serverless function</small></li>
+    </ul>
+
+    <section class="project-section" aria-labelledby="calculator-overview">
+      <header class="project-section-head"><span>01 / OVERVIEW</span><h2 id="calculator-overview">A simple tool with careful behavior underneath</h2><p>I wanted the calculator to feel familiar right away, but I also wanted the code behind it to be dependable. The result is a small web application where the interface, API, parser, and automated tests each have a clear job.</p></header>
+      <div class="project-summary-grid"><article class="project-summary-card"><span>INPUT</span><h3>Work the way people expect</h3><p>The keypad, physical keyboard, and pasted expressions all lead into the same calculation flow.</p></article><article class="project-summary-card"><span>CLARITY</span><h3>Explain mistakes without losing work</h3><p>Incomplete expressions, division by zero, and connection failures return understandable messages so the user can make a correction.</p></article><article class="project-summary-card"><span>COMFORT</span><h3>Adapt to the person using it</h3><p>Light, dark, and system themes make the interface comfortable across devices, with the preference saved locally.</p></article></div>
+    </section>
+
+    <section class="project-section" aria-labelledby="calculator-interface">
+      <header class="project-section-head"><span>02 / INTERFACE</span><h2 id="calculator-interface">A raised-key design that stays focused</h2><p>The layout gives the display and keypad most of the attention. Soft depth, an orange equals key, and restrained labels make the calculator feel tactile without making it busy.</p></header>
+      <div class="project-gallery"><figure class="project-figure is-wide"><img src="../assets/images/project-calculator-ui.png" alt="Full calculator web interface"><figcaption><span>SCREEN 01</span><strong>Desktop calculator</strong><p>The same controls scale down for tablet and mobile use.</p></figcaption></figure></div>
+    </section>
+
+    <section class="project-section" aria-labelledby="calculator-build">
+      <header class="project-section-head"><span>03 / ENGINEERING</span><h2 id="calculator-build">The expression is parsed, never executed</h2></header>
+      <div class="project-work-grid"><article class="project-work-card"><span>SAFETY</span><h3>A purpose-built parser</h3><p>The Python engine tokenizes numbers and supported symbols, applies operator precedence, and never passes user input to <code>eval()</code>.</p></article><article class="project-work-card"><span>PRECISION</span><h3>Decimal arithmetic</h3><p>Python’s <code>Decimal</code> type avoids familiar binary floating-point surprises and formats answers to a practical 16 significant digits.</p></article><article class="project-work-card"><span>API</span><h3>One small calculation endpoint</h3><p>The browser sends an expression to the Flask API and receives either a display-ready result or a consistent error response.</p></article><article class="project-work-card"><span>QUALITY</span><h3>Regression coverage</h3><p>Automated tests cover precedence, percentages, negative numbers, malformed requests, numeric limits, division by zero, and source-file protection.</p></article></div>
+    </section>
+
+    <section class="project-section" aria-labelledby="calculator-review">
+      <header class="project-section-head"><span>04 / REFLECTION</span><h2 id="calculator-review">What this project helped me understand</h2></header>
+      <div class="project-work-grid"><article class="project-work-card"><span>LEARNING</span><h3>Small interfaces still need full-stack thinking</h3><p>Building a calculator showed me how many decisions sit behind a familiar tool. Input rules, parser safety, API behavior, visual feedback, accessibility, and deployment all have to work together.</p></article><article class="project-work-card"><span>NEXT STEP</span><h3>Keep expanding it carefully</h3><ul><li>Add an optional calculation history stored only in the browser</li><li>Support memory controls without crowding the keypad</li><li>Add end-to-end interaction tests</li><li>Continue testing on more mobile devices</li></ul></article></div>
+      <div class="project-note"><span>PRIVACY</span><p>Calculations are not stored. The live app sends each expression only to its same-origin Python endpoint and applies strict request and expression limits.</p><a href="https://github.com/Jafaga/calculator" target="_blank" rel="noreferrer">Open repository ↗</a></div>
+    </section>
+
+    <nav class="detail-pager" aria-label="Project case studies"><a href="national-cookie-day.html"><span>← PREVIOUS PROJECT</span><strong>National Cookie Day</strong></a><a href="adobo-on-island-time.html"><span>NEXT PROJECT →</span><strong>Adobo on Island Time</strong></a></nav>
+  </main>
+  <footer class="detail-footer"><span>© 2026 Justine Afaga · Honolulu, Hawaiʻi</span><a href="../index.html#projects">Return to selected work ↑</a></footer>
+</body></html>

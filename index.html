@@ -154,7 +154,7 @@
             </div>
           </article>
           <div class="stats-grid" aria-label="Portfolio statistics">
-            <div><small>PROJECTS</small><strong data-counter="9">00</strong><span>featured builds</span></div>
+            <div><small>PROJECTS</small><strong data-counter="11">00</strong><span>featured builds</span></div>
             <div><small>WRITING</small><strong data-counter="3">00</strong><span>featured journal posts</span></div>
             <div><small>GRADUATION</small><strong>2028</strong><span>Spring Semester</span></div>
           </div>
@@ -281,10 +281,18 @@
 
         <div class="pinned-projects">
           <div class="project-toolbar">
-            <span>PINNED_PROJECTS <b data-project-count>9</b></span>
+            <span>PINNED_PROJECTS <b data-project-count>11</b></span>
             <div role="group" aria-label="Filter projects"><button class="is-active" type="button" data-filter="all" aria-pressed="true">All</button><button type="button" data-filter="software" aria-pressed="false">Software</button><button type="button" data-filter="game" aria-pressed="false">Games</button><button type="button" data-filter="community" aria-pressed="false">Community</button><button type="button" data-filter="leadership" aria-pressed="false">Leadership</button></div>
           </div>
           <div class="project-grid">
+            <article id="project-calculator" class="project-card" data-category="software">
+              <a class="project-image" href="projects/calculator.html"><img src="assets/images/project-calculator-ui.png" alt="Python Calculator interface with a raised keypad, dark display, and theme controls" loading="lazy"><span>NEW</span></a>
+              <div class="project-body"><div class="project-kicker"><span>PYTHON WEB APPLICATION</span><small>SEP 9, 2026</small></div><h3><a href="projects/calculator.html">Calculator</a></h3><p>A responsive Python calculator with safe decimal arithmetic, full keyboard input, clear errors, and light, dark, and system themes.</p><ul class="tag-list"><li>Python</li><li>Flask</li><li>JavaScript</li><li>Vercel</li></ul><footer><span><i class="dot py"></i> Python</span><a class="case-study-link" href="projects/calculator.html">View case study →</a></footer></div>
+            </article>
+            <article id="project-adobo" class="project-card" data-category="software community">
+              <a class="project-image" href="projects/adobo-on-island-time.html"><img src="assets/images/project-adobo-cover.jpg" alt="Justine Afaga's finished chicken adobo served in a bowl" loading="lazy"><span>NEW</span></a>
+              <div class="project-body"><div class="project-kicker"><span>INTERACTIVE COOKING JOURNAL</span><small>SEP 5–8, 2026</small></div><h3><a href="projects/adobo-on-island-time.html">Adobo on Island Time</a></h3><p>A personal cooking journal that brings together my Filipino roots, Hawaiʻi upbringing, chicken adobo recipe, and love of building with code.</p><ul class="tag-list"><li>React</li><li>TypeScript</li><li>UI/UX</li><li>Storytelling</li></ul><footer><span><i class="dot" style="--repo-color:#3178c6"></i> TypeScript</span><a class="case-study-link" href="projects/adobo-on-island-time.html">View case study →</a></footer></div>
+            </article>
             <article id="project-expense" class="project-card" data-category="software">
               <a class="project-image" href="projects/expense-tracker.html"><img src="assets/images/project-expense-ui.svg" alt="Expense Tracker desktop dashboard with an entry form, totals, and transactions" loading="lazy"><span>NEW</span></a>
               <div class="project-body"><div class="project-kicker"><span>DESKTOP APPLICATION</span><small>AUG 21, 2026</small></div><h3><a href="projects/expense-tracker.html">Expense Tracker</a></h3><p>A local-first Python desktop app for recording daily expenses, filtering transactions, and reviewing category totals.</p><ul class="tag-list"><li>Python</li><li>Tkinter</li><li>SQLite</li><li>Unit Tests</li></ul><footer><span><i class="dot py"></i> Python</span><a class="case-study-link" href="projects/expense-tracker.html">View case study →</a></footer></div>
@@ -389,6 +397,6 @@
   <nav class="mobile-dock" aria-label="Mobile section navigation"><a href="#home">⌂<span>Home</span></a><a href="#about">&gt;_<span>About</span></a><a href="#skills">#<span>Skills</span></a><a href="#projects">□<span>Work</span></a><a href="#contact">@<span>Contact</span></a></nav>
 
   <!-- Main interactions: navigation, motion, filters, timeline, forms, and assistant. -->
-  <script src="app.js?v=3.3" defer></script>
+  <script src="app.js?v=3.4" defer></script>
 </body>
 </html>
