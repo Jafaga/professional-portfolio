@@ -442,7 +442,7 @@
     },
     experience: {
       label: 'Tell me about her experience.',
-      text: 'Justine is an M.S. Computer Science candidate at UH Mānoa, expected to graduate in Spring 2028. Her experience spans department web design, student ambassadorship, Timpuyog leadership, the TIDES program, retail, hospitality, and community-focused student work.',
+      text: 'Justine is an M.S. Computer Science candidate at UH Mānoa, expected to graduate in Spring 2028, and a Learning Design and Technology graduate assistant with ITEC in the College of Education since September 16, 2026. Her experience also spans department web design, student ambassadorship, Timpuyog leadership, the TIDES program, retail, hospitality, and community-focused student work.',
       action: { label: 'View the timeline →', href: '#experience' }
     },
     contact: {
